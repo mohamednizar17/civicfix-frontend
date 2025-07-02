@@ -2,7 +2,7 @@
 import axios from 'axios';
 
 const instance = axios.create({
-  baseURL: 'http://localhost:5000/api', // 🔁 Adjust if your backend is deployed elsewhere
+  baseURL: 'https://civicfix-backend-w43z.onrender.com/', // 🔁 Adjust if your backend is deployed elsewhere
 });
 
 // ✅ Automatically attach token to each request
