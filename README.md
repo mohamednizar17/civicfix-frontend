@@ -1,12 +1,45 @@
-# React + Vite
+# CivicFix Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is the React frontend for [CivicFix](https://civicfix-frontend-pearl.vercel.app/), a platform empowering citizens to report and track civic issues in their communities.
 
-Currently, two official plugins are available:
+## 🚀 Live Demo
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+[https://civicfix-frontend-pearl.vercel.app/](https://civicfix-frontend-pearl.vercel.app/)
 
-## Expanding the ESLint configuration
+## ✨ Features
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- Modern, mobile-responsive UI with animated backgrounds
+- User authentication and dashboard
+- Submit, track, and view the status of complaints
+- Visual progress bar for complaint status
+- Admin dashboard with analytics and status management
+- FAQ and feedback section
+- Email notifications for status updates
+
+## 🛠️ Tech Stack
+
+- React
+- Framer Motion
+- Axios
+- Recharts
+- Vercel (hosting)
+
+## 🔗 Backend
+
+The backend API is hosted at:  
+[https://civicfix-backend-w43z.onrender.com/](https://civicfix-backend-w43z.onrender.com/)
+
+## 📦 Getting Started (Local Development)
+
+```bash
+git clone https://github.com/yourusername/civicfix-frontend.git
+cd civicfix-frontend
+npm install
+npm run dev
+```
+
+- Create a `.env` file if you use environment variables (e.g., for API URL).
+
+## 📄 License
+
+ISC
