@@ -28,7 +28,14 @@ function App() {
         }>
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/submit" element={<SubmitComplaint />} />
+            <Route
+  path="/submit"
+  element={
+    <ProtectedRoute allowedRoles={['admin', 'user']}>
+      <SubmitComplaint />
+    </ProtectedRoute>
+  }
+/>
             <Route
               path="/dashboard"
               element={
