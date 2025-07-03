@@ -21,18 +21,19 @@ function FAQ() {
           <b>Can I edit or delete my complaint?</b>
           <p>You can delete your complaint before it is resolved. Editing is not allowed after submission for transparency.</p>
         </li>
-        
-        
         <li style={{ marginBottom: 20 }}>
           <b>What kind of issues can I report?</b>
           <p>You can report issues related to roads, water, electricity, sanitation, or any other civic concern.</p>
         </li>
-        
+        <li style={{ marginBottom: 20 }}>
+          <b>What should I do when the webpage is not working?</b>
+          <p>Since the backend is hosted on Render, it will go down due to inactivity . so kindly refresh your browser or login again.</p>
+        </li>
       </ul>
 
       <div style={{ marginTop: 40, padding: 24, background: '#fff', borderRadius: 10, boxShadow: '0 2px 8px #e0e7ff' }}>
         <h3 style={{ color: '#2563eb' }}>Send Us Your Feedback</h3>
-        <p>
+        <div style={{ display: 'flex', justifyContent: 'center' }}>
           <a
             href={`mailto:civicfix17@gmail.com?subject=Feedback for CivicFix&body=Your feedback here...`}
             style={{
@@ -43,14 +44,17 @@ function FAQ() {
               borderRadius: 6,
               textDecoration: 'none',
               fontWeight: 'bold',
-              marginTop: 12
+              marginTop: 12,
+              transition: 'background 0.3s, transform 0.2s',
+              boxShadow: '0 4px 4px rgba(14, 97, 239, 0.1)',
+              alignContent: 'center',
             }}
           >
             Click here to send feedback via email
           </a>
-        </p>
-        <p style={{ fontSize: '0.95em', color: '#64748b', marginTop: 8 }}>
-          (This will open your email app with a pre-filled message.)
+        </div>
+        <p style={{ fontSize: '0.95em', color: '#64748b', marginTop: 8, textAlign: 'center' }}>
+          (We are always keen to hear your suggestions!.)
         </p>
       </div>
     </div>
