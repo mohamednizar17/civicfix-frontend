@@ -9,6 +9,7 @@ function Login() {
 
   const [formData, setFormData] = useState({ email: '', password: '' });
   const [error, setError] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -31,6 +32,10 @@ function Login() {
     }
   };
 
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
+  };
+
   return (
     <div className="login-root">
       <form className="login-card" onSubmit={handleSubmit}>
@@ -45,15 +50,25 @@ function Login() {
           className="login-input"
           required
         />
-        <input
-          name="password"
-          type="password"
-          value={formData.password}
-          onChange={handleChange}
-          placeholder="Password"
-          className="login-input"
-          required
-        />
+        <div className="password-container">
+          <input
+            name="password"
+            type={showPassword ? 'text' : 'password'}
+            value={formData.password}
+            onChange={handleChange}
+            placeholder="Password"
+            className="login-input"
+            required
+          />
+          <button
+            type="button"
+            className="password-toggle"
+            onClick={togglePasswordVisibility}
+            tabIndex="-1"
+          >
+            {showPassword ? '🙈' : '👁️'}
+          </button>
+        </div>
         <button type="submit" className="login-btn">Login</button>
         <div className="login-link-row">
           <span>Don't have an account?</span>
