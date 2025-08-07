@@ -11,10 +11,13 @@ const Register = () => {
     name: '',
     email: '',
     password: '',
+    confirmPassword: '',
     role: 'user',
   });
 
   const [error, setError] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -24,8 +27,16 @@ const Register = () => {
     e.preventDefault();
     setError('');
 
+    // Check if passwords match
+    if (form.password !== form.confirmPassword) {
+      setError('Passwords do not match');
+      return;
+    }
+
     try {
-      const res = await axios.post('/auth/register', form);
+      // Remove confirmPassword before sending to backend
+      const { confirmPassword, ...registerData } = form;
+      const res = await axios.post('/auth/register', registerData);
       localStorage.setItem('token', res.data.token);
       login(res.data.user);
 
@@ -37,6 +48,14 @@ const Register = () => {
     } catch {
       setError('Registration failed');
     }
+  };
+
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
+  };
+
+  const toggleConfirmPasswordVisibility = () => {
+    setShowConfirmPassword(!showConfirmPassword);
   };
 
   return (
@@ -62,15 +81,44 @@ const Register = () => {
           className="register-input"
           required
         />
-        <input
-          type="password"
-          name="password"
-          value={form.password}
-          onChange={handleChange}
-          placeholder="Password"
-          className="register-input"
-          required
-        />
+        <div className="password-container">
+          <input
+            type={showPassword ? 'text' : 'password'}
+            name="password"
+            value={form.password}
+            onChange={handleChange}
+            placeholder="Password"
+            className="register-input"
+            required
+          />
+          <button
+            type="button"
+            className="password-toggle"
+            onClick={togglePasswordVisibility}
+            tabIndex="-1"
+          >
+            {showPassword ? '🙈' : '👁️'}
+          </button>
+        </div>
+        <div className="password-container">
+          <input
+            type={showConfirmPassword ? 'text' : 'password'}
+            name="confirmPassword"
+            value={form.confirmPassword}
+            onChange={handleChange}
+            placeholder="Confirm Password"
+            className="register-input"
+            required
+          />
+          <button
+            type="button"
+            className="password-toggle"
+            onClick={toggleConfirmPasswordVisibility}
+            tabIndex="-1"
+          >
+            {showConfirmPassword ? '🙈' : '👁️'}
+          </button>
+        </div>
         <button type="submit" className="register-btn">
           Create Account
         </button>
