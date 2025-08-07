@@ -40,3 +40,23 @@
 .read-the-docs {
   color: #888;
 }
+
+/* Password Toggle Styles */
+.password-container {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+
+.password-toggle {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+  padding: 5px;
+  border-radius: 4px;
+}
